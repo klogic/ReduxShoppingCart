@@ -1,8 +1,18 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import { combineReducers } from 'redux';
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const productsReducer = function(state=[], action){
+  return state;
+}
+
+const cartReducer = function(state=[], action){
+  return state;
+}
+
+const allReducers = {
+  products: productsReducer,
+  shoppingCart: cartReducer
+}
+
+const rootReducer = combineReducers(allReducers)
+
+let store = createStore(rootReducer);
