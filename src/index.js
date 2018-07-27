@@ -1,8 +1,27 @@
 import { combineReducers } from 'redux';
+import { createStore } from "redux";
 
-const productsReducer = function(state=[], action){
+
+
+const initialState = {
+  cart: [
+    {
+      product: 'bread 700g',
+      quantity: 2,
+      unitCost: 90
+    },
+    {
+      product: 'milk 500ml',
+      quantity: 1,
+      unitCost: 47
+    }
+  ]
+}
+
+const productsReducer = function(state=initialState, action){
   return state;
 }
+
 
 const cartReducer = function(state=[], action){
   return state;
@@ -16,3 +35,5 @@ const allReducers = {
 const rootReducer = combineReducers(allReducers)
 
 let store = createStore(rootReducer);
+
+console.log("initial state: ", store.getState());
